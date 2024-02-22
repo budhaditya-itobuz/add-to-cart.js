@@ -8,7 +8,6 @@ const sortItems=document.querySelectorAll('.sort')
 const filterItems=document.querySelectorAll('.filter')
 const logoCart=document.getElementById('cart-logo')
 
-// setData('sort','default')
 
 if (!getData('product'))
   setData('product', product)
@@ -61,7 +60,7 @@ const render = () => {
                 <h3>${item.title}</h3>
                 <h5>${item.description}</h5>
                 <h4>ratings : <span>${item.ratings}</h4>
-                <img src="../images/star-solid.svg" alt="start">
+                <img src="./images/star-solid.svg" alt="start">
                 <h4>Price : <span>Rs. ${item.price}</span></h4>
                 <button uid="${item.id}" class="increament">Add to Cart</button>
             </div>
@@ -78,7 +77,7 @@ const render = () => {
                 <h3>${item.title}</h3>
                 <h5>${item.description}</h5>
                 <h4>ratings : <span>${item.ratings}</h4>
-                <img src="../images/star-solid.svg" alt="start">
+                <img src="./images/star-solid.svg" alt="start">
                 <h4>Price : <span>Rs. ${item.price}</span></h4>
                 <h6>Quantity:</h6>
                 <div class="number-group">
@@ -118,7 +117,6 @@ render()
 
 filterItems.forEach((item)=>{
   item.addEventListener('click',()=>{
-    console.log(item.getAttribute('id'))
     setData('filter',item.getAttribute('id'))
     render()
   })
