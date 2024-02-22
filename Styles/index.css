@@ -50,6 +50,10 @@ nav .menu-item:nth-of-type(3) span {
   margin: 10px;
   width: 150px;
 }
+.dropdown a {
+  text-decoration: none;
+  color: black;
+}
 
 .dropdown-content {
   background-color: white;
