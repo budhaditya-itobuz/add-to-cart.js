@@ -47,7 +47,6 @@ const verify = (e) => {
     for (let i = 0; i < 6; i++) {
         otp += Math.floor(Math.random() * 10)
     }
-    console.log(otp)
     emailjs.send("budhaditya007", "template_2hg62sa", {
         from_name: "Flipkart",
         to_name: name.value,

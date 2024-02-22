@@ -9,7 +9,6 @@ export const addItem = (productId) => {
 
   userCart.map((item, index) => {
     if (item.id === userId) {
-      console.log(item.cart)
       item.cart.map((ele, i) => {
         if (ele.id === parseInt(productId)) {
           userCart[index].cart[i].quantity++
@@ -26,7 +25,6 @@ export const removeItem = (productId) => {
 
   userCart.map((item, index) => {
     if (item.id === userId) {
-      console.log(item.cart)
       item.cart.map((ele, i) => {
         if (ele.id === parseInt(productId)) {
           if (userCart[index].cart[i].quantity > 0)

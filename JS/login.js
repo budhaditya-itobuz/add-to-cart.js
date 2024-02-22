@@ -9,15 +9,13 @@ const onFormSubmit = (e) => {
 
     const formData = new FormData(e.target);
     const userLoginObject = Object.fromEntries(formData.entries());
-    console.log(userLoginObject)
     const registeredUser = getData('registeredUser')
     let isregistered = false
 
     for (let i = 0; i < registeredUser.length; i++) {
         if (registeredUser[i].email === userLoginObject.email) {
             isregistered = true
-            if (registeredUser[i].password == userLoginObject.password) {
-                console.log(registeredUser[i])
+            if (registeredUser[i].password === userLoginObject.password) {
                 setData('user', registeredUser[i].userId)
                 location.replace('../index.html')
             }

@@ -1,8 +1,6 @@
 import { product, quantity } from '../Data/data.js'
 import { getData, setData, removeItem, addItem } from './helper.js';
 
-
-
 const container = document.getElementById("container");
 const sortItems = document.querySelectorAll('.sort')
 const filterItems = document.querySelectorAll('.filter')
@@ -47,7 +45,6 @@ const render = () => {
   logoCart.innerText = cart.filter((item) => item.quantity > 0).length
 
 
-  console.log(cart)
   document.querySelector("#product-container").innerHTML = productData.map((item, index) => {
     const quantity = cart.filter((element) => element.id.toString() === item.id)[0].quantity
     if (quantity === 0)
