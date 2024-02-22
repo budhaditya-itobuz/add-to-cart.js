@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../Styles/registration.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: "D9qU5JF9AKJ8ZkDh_",
+      });
+    })();
+  </script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;1,100;1,200;1,400;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+
+</head>
+
+<body>
+  <div class="container-body">
+    <div class="content">
+      <h4>Sign Up to create account</h4>
+      <form id="my-form">
+        <input type="text" id="name-input" name="name" placeholder="Your Name" />
+        <input type="email" id="email-input" name="email" placeholder="Your email" />
+        <input type="password" id="password-input" name="password" placeholder="Set Your Password" />
+        <button id="send-otp">
+          Send OTP
+        </button>
+        <input type="number" id="verify-input" name="otp" placeholder="Enter your otp" />
+        <button type="submit" id="submit-btn">Submit</button>
+      </form>
+      <h5>Already Registered? <a href="../HTML/login.html">Login</a></h5>
+
+    </div>
+  </div>
+  <script type="module" src="../JS/registration.js"> </script>
+</body>
+
+</html>
