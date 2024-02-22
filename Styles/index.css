@@ -5,7 +5,8 @@
   font-family: "poppins";
 }
 
-a, button {
+a,
+button {
   cursor: pointer;
 }
 
@@ -38,11 +39,34 @@ nav .menu-item:nth-of-type(3) span {
 }
 
 .filter-options {
+  margin: 10px;
+}
+.filter-options h3 {
+  text-align: center;
+}
+
+.sliders {
   display: flex;
-  justify-content: center;
-  padding: 10px;
-  flex-direction: column;
-  align-items: center;
+  margin: 10px auto;
+  max-width: 300px;
+}
+.sliders h4 {
+  text-align: center;
+}
+.sliders h4 span {
+  font-weight: 300;
+}
+.sliders .slidecontainer {
+  margin: auto;
+}
+
+.sort-options h3 {
+  text-align: center;
+  margin: 20px;
+}
+.sort-options .sort-menu {
+  max-width: 500px;
+  margin: auto;
 }
 
 .dropdown {
@@ -201,7 +225,7 @@ h2 {
 }
 
 @media (min-width: 600px) {
-  .filter-options {
+  .sort-options {
     flex-direction: row;
   }
 }/*# sourceMappingURL=index.css.map */

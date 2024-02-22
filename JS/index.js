@@ -5,7 +5,15 @@ const container = document.getElementById("container");
 const sortItems = document.querySelectorAll('.sort')
 const filterItems = document.querySelectorAll('.filter')
 const logoCart = document.getElementById('cart-logo')
+const slider1=document.getElementById('slider1')
+const slider2=document.getElementById('slider2')
+const minRange=document.getElementById('min-range')
+const maxRange=document.getElementById('max-range')
 
+localStorage.removeItem('range')
+
+if(!getData('range'))
+  setData('range',{min:0,max:100000})
 
 if (!getData('product'))
   setData('product', product)
@@ -19,14 +27,16 @@ const render = () => {
 
   let productData = getData('product')
 
-  const filter = getData('filter')
+  const range = getData('range')
 
-  if (filter === "10k")
-    productData = productData.filter((item) => item.price < 10000)
-  else if (filter === "20k")
-    productData = productData.filter((item) => item.price > 10000 && item.price <= 20000)
-  else if (filter === ">20k")
-    productData = productData.filter((item) => item.price > 20000)
+  productData=productData.filter((item)=>item.price>range.min && item.price<range.max)
+
+  // if (filter === "10k")
+  //   productData = productData.filter((item) => item.price < 10000)
+  // else if (filter === "20k")
+  //   productData = productData.filter((item) => item.price > 10000 && item.price <= 20000)
+  // else if (filter === ">20k")
+  //   productData = productData.filter((item) => item.price > 20000)
 
 
   const sort = getData('sort')
@@ -124,6 +134,22 @@ sortItems.forEach((item) => {
     setData('sort', item.getAttribute('id'))
     render()
   })
+})
+
+slider1.addEventListener('change',()=>{
+  let range=getData('range')
+  range.min=slider1.value 
+  setData('range',range)
+  minRange.innerText=slider1.value
+  render()
+})
+
+slider2.addEventListener('change',()=>{
+  let range=getData('range')
+  range.max=slider2.value 
+  setData('range',range)
+  maxRange.innerText=slider2.value
+  render()
 })
 
 
