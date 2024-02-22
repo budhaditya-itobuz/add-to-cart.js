@@ -5,6 +5,10 @@
   font-family: "poppins";
 }
 
+a, button {
+  cursor: pointer;
+}
+
 nav {
   z-index: 5;
 }
