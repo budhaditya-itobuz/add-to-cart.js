@@ -1,173 +1,203 @@
-*{
+* {
     margin: 0;
-    padding:0;
+    padding: 0;
     box-sizing: border-box;
     font-family: "poppins";
 }
-nav{
+
+nav {
     z-index: 5;
-    .menu-item:nth-of-type(3){
-        img{
+
+    .menu-item:nth-of-type(3) {
+        img {
             width: 100%;
         }
+
         width: 30px;
         display: flex;
         align-items: center;
         position: relative;
-        span{
+
+        span {
             display: inline-block;
-            width:15px;
-            height:15px;
+            width: 15px;
+            height: 15px;
             background-color: green;
             border-radius: 50%;
-            position:absolute;
+            position: absolute;
             top: -4px;
             right: -11px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color:white;
+            color: white;
             font-size: 10px;
         }
     }
 }
-.filter-options{
+
+.filter-options {
     display: flex;
     justify-content: center;
-    padding:10px;
+    padding: 10px;
 }
 
 .dropdown {
     display: inline-block;
     position: relative;
-    padding:5px 0;
+    padding: 5px 0;
     font-weight: 300;
-    margin:10px;
+    margin: 10px;
     width: 150px;
 }
-  .dropdown-content {
+
+.dropdown-content {
     display: none;
     position: absolute;
     width: 100%;
     overflow: auto;
-    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
-  }
-  .dropdown:hover .dropdown-content {
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown:hover .dropdown-content {
     display: block;
-  }
-  .dropdown-content a {
+}
+
+.dropdown-content a {
     display: block;
     color: #000000;
     padding: 5px;
     text-decoration: none;
-  }
-  .dropdown-content a:hover {
+}
+
+.dropdown-content a:hover {
     color: #FFFFFF;
     background-color: #00A4BD;
-  }
-.options{
+}
+
+.options {
     background-color: white;
     position: sticky;
-    top:0;
-    padding:0 20px;
+    top: 0;
+    padding: 0 20px;
     display: flex;
     justify-content: end;
-    box-shadow: 0px 0.5px 2px 0px rgba(0,0,0,0.50);
+    box-shadow: 0px 0.5px 2px 0px rgba(0, 0, 0, 0.50);
 
 }
-select{
+
+select {
     height: 50px;
     border: none;
-    &:focus{
+
+    &:focus {
         outline: none;
     }
+
     background-color: aqua;
     border-radius: 3px;
     padding:10px;
 }
-h2{
+
+h2 {
     text-align: center;
-    margin:20px 0;
+    margin: 20px 0;
 }
-.menu-item{
+
+.menu-item {
     text-decoration: none;
     color: black;
-    padding:5px 0;
+    padding: 5px 0;
     font-weight: 300;
     border-bottom: 2px solid #ffffff;
-    &:hover{
+
+    &:hover {
         border-bottom: 2px solid #FE4805;
     }
+
     margin:10px;
 }
 
-.product-card{
+.product-card {
     max-width: 200px;
     overflow: hidden;
     min-height: 370px;
     display: flex;
     flex-direction: column;
-    margin:10px;
-    border:1px solid rgb(165, 153, 153);
+    margin: 10px;
+    border: 1px solid rgb(165, 153, 153);
     border-radius: 4px;
-    img{
-         width:100%;
+
+    img {
+        width: 100%;
     }
-    h4:nth-of-type(1){
+
+    h4:nth-of-type(1) {
         display: inline;
-        span{
+
+        span {
             font-weight: 400;
         }
     }
-    img[alt="start"]
-    {
+
+    img[alt="start"] {
         width: 12px;
     }
-    .card-info{
-        padding:10px;
+
+    .card-info {
+        padding: 10px;
     }
-    h5{
-        margin:8px 0;
+
+    h5 {
+        margin: 8px 0;
         font-size: 12px;
         font-weight: 400;
     }
-    h4{
+
+    h4 {
         font-size: 14px;
         margin-bottom: 5px;
-        span{
+
+        span {
             font-weight: 400;
         }
     }
-    button{
-        color:white;
+
+    button {
+        color: white;
         background-color: black;
-        padding:5px 10px;
+        padding: 5px 10px;
         border-radius: 4px;
         border: none;
-        margin:5px 0;
+        margin: 5px 0;
     }
 }
-.container{
+
+.container {
     max-width: 800px;
-    margin:auto;
+    margin: auto;
     display: flex;
-    padding:20px;
+    padding: 20px;
     flex-wrap: wrap;
     justify-content: center;
 }
-.number-group{
-    span{
-        padding:0 6px;
+
+.number-group {
+    span {
+        padding: 0 6px;
         border-right: 1px solid rgb(137, 118, 118);
-        margin:0;
+        margin: 0;
         cursor: pointer;
     }
-    span:nth-child(3){
+
+    span:nth-child(3) {
         border: none;
     }
-    span:nth-child(2){
+
+    span:nth-child(2) {
         cursor: default;
     }
+
     align-self: flex-end;
     background-color: rgb(232, 218, 221);
     width: fit-content;

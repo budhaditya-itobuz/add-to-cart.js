@@ -1,108 +1,128 @@
-*{
+* {
     padding: 0;
-    margin:0;
+    margin: 0;
     box-sizing: border-box;
     font-family: "poppins";
 
 }
-nav{
+
+nav {
     z-index: 5;
-    .menu-item:nth-of-type(3){
-        img{
+
+    .menu-item:nth-of-type(3) {
+        img {
             width: 100%;
         }
+
         width: 30px;
         display: flex;
         align-items: center;
         position: relative;
-        span{
+
+        span {
             display: inline-block;
-            width:15px;
-            height:15px;
+            width: 15px;
+            height: 15px;
             background-color: green;
             border-radius: 50%;
-            position:absolute;
+            position: absolute;
             top: -4px;
             right: -11px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color:white;
+            color: white;
             font-size: 10px;
         }
     }
 }
-.options{
+
+.options {
     background-color: white;
     position: sticky;
-    top:0;
-    padding:0 20px;
+    top: 0;
+    padding: 0 20px;
     display: flex;
     justify-content: end;
-    box-shadow: 0px 0.5px 2px 0px rgba(0,0,0,0.50);
+    box-shadow: 0px 0.5px 2px 0px rgba(0, 0, 0, 0.50);
 
 }
-h2{
+
+h2 {
     text-align: center;
-    margin:20px 0;
+    margin: 20px 0;
 }
-.menu-item{
+
+.menu-item {
     text-decoration: none;
     color: black;
-    padding:5px 0;
+    padding: 5px 0;
     font-weight: 300;
     border-bottom: 2px solid #ffffff;
-    &:hover{
+
+    &:hover {
         border-bottom: 2px solid #FE4805;
     }
+
     margin:10px;
 }
-.cart-card{
-    padding:10px;
+
+.cart-card {
+    padding: 10px;
     margin: auto;
     max-width: 500px;
     border-bottom: 1px solid rgb(238, 216, 216);
     display: flex;
     flex-direction: column;
-    h4{
+
+    h4 {
         font-size: 18px;
         margin-bottom: 10px;
-        margin:10px 10px;
+        margin: 10px 10px;
     }
-    h5{
+
+    h5 {
         font-size: 12px;
         margin: 10px;
         font-weight: 400;
     }
-    .card-info{
-        div:nth-child(1){
+
+    .card-info {
+        div:nth-child(1) {
             display: flex;
         }
+
         display: flex;
         justify-content: space-between;
-        .card-img{
+
+        .card-img {
             height: 60px;
             margin: 10px;
             margin-bottom: 0;
-        
+
         }
-        img{
+
+        img {
             height: 100%;
         }
     }
 }
-.number-group{
-    span{
-        padding:0 6px;
+
+.number-group {
+    span {
+        padding: 0 6px;
         border-right: 1px solid rgb(137, 118, 118);
-        margin:0;
+        margin: 0;
         cursor: pointer;
     }
-    span:nth-child(3){
+
+    span:nth-child(3) {
         border: none;
     }
-    span:nth-child(2){
+
+    span:nth-child(2) {
         cursor: default;
     }
+
     align-self: flex-end;
 }

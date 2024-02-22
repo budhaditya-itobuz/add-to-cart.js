@@ -1,8 +1,8 @@
 import { getData, setData } from "./helper.js";
 
 
-if(!getData('registeredUser'))
-setData('registeredUser',[])
+if (!getData('registeredUser'))
+    setData('registeredUser', [])
 
 const onFormSubmit = (e) => {
     e.preventDefault();
@@ -10,26 +10,23 @@ const onFormSubmit = (e) => {
     const formData = new FormData(e.target);
     const userLoginObject = Object.fromEntries(formData.entries());
     console.log(userLoginObject)
-    const registeredUser=getData('registeredUser')
-    let isregistered=false
+    const registeredUser = getData('registeredUser')
+    let isregistered = false
 
-    for(let i=0 ;i<registeredUser.length;i++){
-        if(registeredUser[i].email=== userLoginObject.email)
-        {
-            isregistered=true
-            if(registeredUser[i].password == userLoginObject.password)
-            {
+    for (let i = 0; i < registeredUser.length; i++) {
+        if (registeredUser[i].email === userLoginObject.email) {
+            isregistered = true
+            if (registeredUser[i].password == userLoginObject.password) {
                 console.log(registeredUser[i])
-                setData('user',registeredUser[i].userId)
+                setData('user', registeredUser[i].userId)
                 location.replace('../index.html')
             }
             else
-            alert('wrong password')
+                alert('wrong password')
             break
         }
     }
-    if(!isregistered)
-    {
+    if (!isregistered) {
         alert('You are not registered! please proceed to registration')
         location.replace('registration.html')
     }

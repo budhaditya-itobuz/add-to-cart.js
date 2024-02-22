@@ -4,9 +4,9 @@ import { getData, setData, removeItem, addItem } from './helper.js';
 
 
 const container = document.getElementById("container");
-const sortItems=document.querySelectorAll('.sort')
-const filterItems=document.querySelectorAll('.filter')
-const logoCart=document.getElementById('cart-logo')
+const sortItems = document.querySelectorAll('.sort')
+const filterItems = document.querySelectorAll('.filter')
+const logoCart = document.getElementById('cart-logo')
 
 
 if (!getData('product'))
@@ -21,17 +21,17 @@ const render = () => {
 
   let productData = getData('product')
 
-  const filter=getData('filter')
+  const filter = getData('filter')
 
-  if(filter==="10k")
-    productData=productData.filter((item)=>item.price<10000)
-  else if(filter==="20k")
-    productData=productData.filter((item)=>item.price>10000 && item.price<=20000)
-  else if(filter===">20k")
-    productData=productData.filter((item)=>item.price>20000)
+  if (filter === "10k")
+    productData = productData.filter((item) => item.price < 10000)
+  else if (filter === "20k")
+    productData = productData.filter((item) => item.price > 10000 && item.price <= 20000)
+  else if (filter === ">20k")
+    productData = productData.filter((item) => item.price > 20000)
 
 
-  const sort=getData('sort')
+  const sort = getData('sort')
 
   if (sort === "lowtoHigh")
     productData = productData.sort((a, b) => a.price - b.price)
@@ -44,13 +44,13 @@ const render = () => {
   const userCart = getData('userCart')
   const cart = userCart.filter((item) => item.id === userId)[0].cart
 
-  logoCart.innerText=cart.filter((item)=>item.quantity>0).length
+  logoCart.innerText = cart.filter((item) => item.quantity > 0).length
 
 
   console.log(cart)
   document.querySelector("#product-container").innerHTML = productData.map((item, index) => {
-    const quantity=cart.filter((element)=>element.id.toString()===item.id)[0].quantity
-    if (quantity===0)
+    const quantity = cart.filter((element) => element.id.toString() === item.id)[0].quantity
+    if (quantity === 0)
       return (
         `
       <div class="product-card" id="${item.id}">
@@ -115,16 +115,16 @@ const render = () => {
 }
 render()
 
-filterItems.forEach((item)=>{
-  item.addEventListener('click',()=>{
-    setData('filter',item.getAttribute('id'))
+filterItems.forEach((item) => {
+  item.addEventListener('click', () => {
+    setData('filter', item.getAttribute('id'))
     render()
   })
 })
 
-sortItems.forEach((item)=>{
-  item.addEventListener('click',()=>{
-    setData('sort',item.getAttribute('id'))
+sortItems.forEach((item) => {
+  item.addEventListener('click', () => {
+    setData('sort', item.getAttribute('id'))
     render()
   })
 })
