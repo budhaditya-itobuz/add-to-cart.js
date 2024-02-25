@@ -9,6 +9,7 @@ const sliderMin = document.getElementById("sliderMin");
 const sliderMax = document.getElementById("sliderMax");
 const minRange = document.getElementById("min-range");
 const maxRange = document.getElementById("max-range");
+const searchBtn = document.getElementById("search-input")
 
 if (!getData(names.priceRange))
     setData(names.priceRange, { min: 0, max: 100000 });
@@ -16,19 +17,22 @@ if (!getData(names.priceRange))
 if (!getData(names.product)) setData(names.product, product);
 
 const render = () => {
+
     container.innerHTML = "";
     const userId = getData(names.user);
     if (!userId) location.replace("./HTML/login.html");
 
     let productData = getData(names.product);
 
+
     const range = getData(names.priceRange);
 
-    productData = productData.filter(
-        (item) => item.price > range.min && item.price < range.max
-    );
+    productData = productData.filter(item => item.price > range.min && item.price < range.max);
 
+    console.log(productData)
     const sort = getData(names.sort);
+
+    productData = productData.filter(item => item.title.toLowerCase().includes(searchBtn.value.toLowerCase()))
 
     if (sort === names.lowtoHigh)
         productData = productData.sort((a, b) => a.price - b.price);
@@ -38,11 +42,12 @@ const render = () => {
         productData = productData.sort((a, b) => b.ratings - a.ratings);
 
     const userCart = getData(names.userCart);
-    const cart = userCart.filter((item) => item.id === userId)[0].cart;
+    const cart = userCart.filter(item => item.id === userId)[0].cart;
 
-    logoCart.innerText = cart.filter((item) => item.quantity > 0).length;
+    logoCart.innerText = cart.filter(item => item.quantity > 0).length;
 
     productData.forEach((item) => {
+
         const quantity = cart.filter(
             (element) => element.id.toString() === item.id
         )[0].quantity;
@@ -122,7 +127,6 @@ const render = () => {
 
     increament.forEach((element) => {
         element.addEventListener("click", () => {
-            console.log("k");
             addItem(element.getAttribute("uid"));
             render();
         });
@@ -173,3 +177,7 @@ sliderMax.addEventListener("change", () => {
     maxRange.innerText = sliderMax.value;
     render();
 });
+
+searchBtn.addEventListener("input", () => {
+    render()
+})

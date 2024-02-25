@@ -10,6 +10,26 @@ button {
   cursor: pointer;
 }
 
+.menu-item {
+  text-decoration: none;
+  max-width: 150px;
+  color: black;
+  padding: 5px 0;
+  font-weight: 300;
+  max-width: 150px;
+  border-bottom: 2px solid #ffffff;
+  margin: 10px;
+}
+.menu-item:hover {
+  border-bottom: 2px solid #FE4805;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 nav {
   z-index: 5;
 }
@@ -39,34 +59,44 @@ nav .menu-item:nth-of-type(3) span {
 }
 
 .filter-options {
-  margin: 10px;
+  margin: 10px auto;
 }
 .filter-options h3 {
   text-align: center;
 }
-
-.sliders {
+.filter-options .sliders {
   display: flex;
-  margin: 10px auto;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 18px auto;
   max-width: 300px;
 }
-.sliders h4 {
+.filter-options .sliders h4 {
   text-align: center;
 }
-.sliders h4 span {
+.filter-options .sliders h4 span {
   font-weight: 300;
 }
-.sliders .slidecontainer {
-  margin: auto;
+.filter-options .sliders .slidecontainer {
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .sort-options h3 {
   text-align: center;
-  margin: 20px;
+  margin: 10px;
 }
 .sort-options .sort-menu {
   max-width: 500px;
   margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sort-options .sort-menu a {
+  text-wrap: nowrap;
+  margin: 0 10px;
 }
 
 .dropdown {
@@ -134,20 +164,6 @@ h2 {
   margin: 20px 0;
 }
 
-.menu-item {
-  text-decoration: none;
-  max-width: 150px;
-  color: black;
-  padding: 5px 0;
-  font-weight: 300;
-  max-width: 150px;
-  border-bottom: 2px solid #ffffff;
-  margin: 10px;
-}
-.menu-item:hover {
-  border-bottom: 2px solid #FE4805;
-}
-
 .product-card {
   max-width: 200px;
   overflow: hidden;
@@ -196,6 +212,12 @@ h2 {
   border-radius: 4px;
   border: none;
   margin: 5px 0;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .container {

@@ -18,26 +18,32 @@
         <a class="menu-item" href="./HTML/cart.html"> <img src="./images/cart-shopping-solid.svg" alt="cart"> <span
                 id="cart-logo"></span></a>
     </nav>
-    <div class="filter-options">
-        <h3>Filter by price</h3>
-        <div class="sliders">
-            <div class="slidecontainer">
-                <input type="range" min="1" max="60000" value="50" class="slider" id="sliderMin">
-                <h4> Min: <span id="min-range">0</span></h4>
+    <div class="header">
+        <div class="filter-options">
+            <h3>Filter by price</h3>
+            <div class="sliders">
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="60000" value="50" class="slider" id="sliderMin">
+                    <h4> Min: <span id="min-range">0</span></h4>
+                </div>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="60000" value="50" class="slider" id="sliderMax">
+                    <h4>Max: <span id="max-range">60000</span></h4>
+                </div>
             </div>
-            <div class="slidecontainer">
-                <input type="range" min="1" max="60000" value="50" class="slider" id="sliderMax">
-                <h4>Max: <span id="max-range">60000</span></h4>
+        </div>
+        <div class="sort-options">
+            <h3>Sort options</h3>
+            <div class="sort-menu">
+                <a class="sort menu-item" id="lowtoHigh">Price: Low to High</a>
+                <a class="sort menu-item" id="hightoLow">Price: High to Low</a>
+                <a class="sort menu-item" id="byRatings">Sort by ratings</a>
             </div>
         </div>
     </div>
-    <div class="sort-options">
-        <h3>Sort options</h3>
-        <div class="sort-menu">
-            <a class="sort menu-item" id="lowtoHigh">Price: Low to High</a>
-            <a class="sort menu-item" id="hightoLow">Price: High to Low</a>
-            <a class="sort menu-item" id="byRatings">Sort by ratings</a>
-        </div>
+    <div class="search">
+        <h3>Search item</h3>
+        <input type="text" id="search-input">
     </div>
     <h2>See all products</h2>
     <div class="container" id="product-container">
