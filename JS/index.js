@@ -1,157 +1,175 @@
-import { product, quantity } from '../Data/data.js'
-import { getData, setData, removeItem, addItem } from './helper.js';
+import { product } from "../Data/data.js";
+import { getData, setData, removeItem, addItem, names } from "./helper.js";
 
-const container = document.getElementById("container");
-const sortItems = document.querySelectorAll('.sort')
-const filterItems = document.querySelectorAll('.filter')
-const logoCart = document.getElementById('cart-logo')
-const slider1=document.getElementById('slider1')
-const slider2=document.getElementById('slider2')
-const minRange=document.getElementById('min-range')
-const maxRange=document.getElementById('max-range')
+const container = document.getElementById("product-container");
+const sortItems = document.querySelectorAll(".sort");
+const filterItems = document.querySelectorAll(".filter");
+const logoCart = document.getElementById("cart-logo");
+const sliderMin = document.getElementById("sliderMin");
+const sliderMax = document.getElementById("sliderMax");
+const minRange = document.getElementById("min-range");
+const maxRange = document.getElementById("max-range");
 
-localStorage.removeItem('range')
+if (!getData(names.priceRange))
+    setData(names.priceRange, { min: 0, max: 100000 });
 
-if(!getData('range'))
-  setData('range',{min:0,max:100000})
-
-if (!getData('product'))
-  setData('product', product)
-
-if (!getData('quantity'))
-  setData('quantity', quantity)
+if (!getData(names.product)) setData(names.product, product);
 
 const render = () => {
-  const userId = getData('user')
-  if (!userId) location.replace('./HTML/login.html')
+    container.innerHTML = "";
+    const userId = getData(names.user);
+    if (!userId) location.replace("./HTML/login.html");
 
-  let productData = getData('product')
+    let productData = getData(names.product);
 
-  const range = getData('range')
+    const range = getData(names.priceRange);
 
-  productData=productData.filter((item)=>item.price>range.min && item.price<range.max)
+    productData = productData.filter(
+        (item) => item.price > range.min && item.price < range.max
+    );
 
-  // if (filter === "10k")
-  //   productData = productData.filter((item) => item.price < 10000)
-  // else if (filter === "20k")
-  //   productData = productData.filter((item) => item.price > 10000 && item.price <= 20000)
-  // else if (filter === ">20k")
-  //   productData = productData.filter((item) => item.price > 20000)
+    const sort = getData(names.sort);
 
+    if (sort === names.lowtoHigh)
+        productData = productData.sort((a, b) => a.price - b.price);
+    else if (sort === names.hightoLow)
+        productData = productData.sort((a, b) => b.price - a.price);
+    else if (sort === names.byRatings)
+        productData = productData.sort((a, b) => b.ratings - a.ratings);
 
-  const sort = getData('sort')
+    const userCart = getData(names.userCart);
+    const cart = userCart.filter((item) => item.id === userId)[0].cart;
 
-  if (sort === "lowtoHigh")
-    productData = productData.sort((a, b) => a.price - b.price)
-  else if (sort === "hightoLow")
-    productData = productData.sort((a, b) => b.price - a.price)
-  else if (sort === "ratings")
-    productData = productData.sort((a, b) => b.ratings - a.ratings)
+    logoCart.innerText = cart.filter((item) => item.quantity > 0).length;
 
+    productData.forEach((item) => {
+        const quantity = cart.filter(
+            (element) => element.id.toString() === item.id
+        )[0].quantity;
 
-  const userCart = getData('userCart')
-  const cart = userCart.filter((item) => item.id === userId)[0].cart
+        const productCard = document.createElement("div");
+        productCard.classList.add("product-card");
+        productCard.id = item.id;
 
-  logoCart.innerText = cart.filter((item) => item.quantity > 0).length
+        const image = document.createElement("img");
+        image.src = item.img;
+        image.alt = item.title;
+        productCard.appendChild(image);
 
+        const cardInfo = document.createElement("div");
+        cardInfo.classList.add("card-info");
+        productCard.appendChild(cardInfo);
 
-  document.querySelector("#product-container").innerHTML = productData.map((item, index) => {
-    const quantity = cart.filter((element) => element.id.toString() === item.id)[0].quantity
-    if (quantity === 0)
-      return (
-        `
-      <div class="product-card" id="${item.id}">
-            <img src="${item.img}"
-                alt="${item.title}">
-            <div class="card-info">
-                <h3>${item.title}</h3>
-                <h5>${item.description}</h5>
-                <h4>ratings : <span>${item.ratings}</h4>
-                <img src="./images/star-solid.svg" alt="start">
-                <h4>Price : <span>Rs. ${item.price}</span></h4>
-                <button uid="${item.id}" class="increament">Add to Cart</button>
-            </div>
-        </div>
-    `
-      )
-    else
-      return (
-        `
-      <div class="product-card" id="${item.id}">
-            <img src="${item.img}"
-                alt="${item.title}">
-            <div class="card-info">
-                <h3>${item.title}</h3>
-                <h5>${item.description}</h5>
-                <h4>ratings : <span>${item.ratings}</h4>
-                <img src="./images/star-solid.svg" alt="start">
-                <h4>Price : <span>Rs. ${item.price}</span></h4>
-                <h6>Quantity:</h6>
-                <div class="number-group">
-                    <span uid="${item.id}" class="increament"">+</span><span>${quantity}</span><span uid="${item.id}" class="decreament" >-</span>
-                </div>
-            </div>
-        </div>
-    `
-      )
-  }).join('')
-  const increament = document.querySelectorAll('.increament')
+        const title = document.createElement("h3");
+        title.textContent = item.title;
+        cardInfo.appendChild(title);
 
-  increament.forEach((element) => {
-    element.addEventListener('click', () => {
-      addItem(element.getAttribute('uid'))
-      render()
-    })
-  });
+        const description = document.createElement("h5");
+        description.textContent = item.description;
+        cardInfo.appendChild(description);
 
+        const ratingsContainer = document.createElement("h4");
+        ratingsContainer.textContent = "ratings : ";
+        const ratingsSpan = document.createElement("span");
+        ratingsSpan.textContent = item.ratings;
+        ratingsContainer.appendChild(ratingsSpan);
+        cardInfo.appendChild(ratingsContainer);
 
-  const decreament = document.querySelectorAll('.decreament')
-  decreament.forEach((element) => {
-    element.addEventListener('click', () => {
-      removeItem(element.getAttribute('uid'))
-      render()
-    })
-  });
+        const starImage = document.createElement("img");
+        starImage.src = "./images/star-solid.svg";
+        starImage.alt = "star";
+        ratingsContainer.appendChild(starImage);
 
-  const logout = document.querySelector('#logout')
-  logout.addEventListener('click', () => {
-    localStorage.removeItem('user')
-    location.replace('./HTML/login.html')
-  })
+        const price = document.createElement("h4");
+        price.textContent = "Price : ";
+        const priceSpan = document.createElement("span");
+        priceSpan.textContent = "Rs. " + item.price;
+        price.appendChild(priceSpan);
+        cardInfo.appendChild(price);
 
-}
-render()
+        if (quantity === 0) {
+            const addButton = document.createElement("button");
+            addButton.setAttribute("uid", item.id);
+            addButton.classList.add("increament");
+            addButton.textContent = "Add to Cart";
+            cardInfo.appendChild(addButton);
+        } else {
+            const numberGroup = document.createElement("div");
+            numberGroup.classList.add("number-group");
+
+            const incrementButton = document.createElement("span");
+            incrementButton.setAttribute("uid", item.id);
+            incrementButton.classList.add("increament");
+            incrementButton.textContent = "+";
+            numberGroup.appendChild(incrementButton);
+
+            const quantityDisplay = document.createElement("span");
+            quantityDisplay.textContent = quantity;
+            numberGroup.appendChild(quantityDisplay);
+
+            const decrementButton = document.createElement("span");
+            decrementButton.setAttribute("uid", item.id);
+            decrementButton.classList.add("decreament");
+            decrementButton.textContent = "-";
+            numberGroup.appendChild(decrementButton);
+
+            cardInfo.appendChild(numberGroup);
+        }
+        container.appendChild(productCard);
+    });
+
+    const increament = document.querySelectorAll(".increament");
+
+    increament.forEach((element) => {
+        element.addEventListener("click", () => {
+            console.log("k");
+            addItem(element.getAttribute("uid"));
+            render();
+        });
+    });
+
+    const decreament = document.querySelectorAll(".decreament");
+    decreament.forEach((element) => {
+        element.addEventListener("click", () => {
+            removeItem(element.getAttribute("uid"));
+            render();
+        });
+    });
+
+    const logout = document.querySelector("#logout");
+    logout.addEventListener("click", () => {
+        localStorage.removeItem("user");
+        location.replace("./HTML/login.html");
+    });
+};
+render();
 
 filterItems.forEach((item) => {
-  item.addEventListener('click', () => {
-    setData('filter', item.getAttribute('id'))
-    render()
-  })
-})
+    item.addEventListener("click", () => {
+        setData("filter", item.getAttribute("id"));
+        render();
+    });
+});
 
 sortItems.forEach((item) => {
-  item.addEventListener('click', () => {
-    setData('sort', item.getAttribute('id'))
-    render()
-  })
-})
+    item.addEventListener("click", () => {
+        setData(names.sort, names[item.getAttribute("id")]);
+        render();
+    });
+});
 
-slider1.addEventListener('change',()=>{
-  let range=getData('range')
-  range.min=slider1.value 
-  setData('range',range)
-  minRange.innerText=slider1.value
-  render()
-})
+sliderMin.addEventListener("change", () => {
+    let priceRange = getData(names.priceRange);
+    priceRange.min = sliderMin.value;
+    setData(names.priceRange, priceRange);
+    minRange.innerText = sliderMin.value;
+    render();
+});
 
-slider2.addEventListener('change',()=>{
-  let range=getData('range')
-  range.max=slider2.value 
-  setData('range',range)
-  maxRange.innerText=slider2.value
-  render()
-})
-
-
-
-
+sliderMax.addEventListener("change", () => {
+    let priceRange = getData(names.priceRange);
+    priceRange.max = sliderMax.value;
+    setData(names.priceRange, priceRange);
+    maxRange.innerText = sliderMax.value;
+    render();
+});

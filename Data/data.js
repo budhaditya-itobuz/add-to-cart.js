@@ -6,7 +6,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 3.5,
-    price: 10000
+    price: 10000,
   },
   {
     id: "102",
@@ -15,7 +15,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 3.2,
-    price: 1499
+    price: 1499,
   },
   {
     id: "103",
@@ -24,7 +24,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 1.2,
-    price: 544899
+    price: 544899,
   },
   {
     id: "104",
@@ -33,7 +33,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 4.8,
-    price: 12999
+    price: 12999,
   },
   {
     id: "105",
@@ -42,7 +42,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 4.5,
-    price: 8999
+    price: 8999,
   },
   {
     id: "106",
@@ -51,7 +51,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 2.5,
-    price: 45899
+    price: 45899,
   },
   {
     id: "107",
@@ -60,7 +60,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 4.5,
-    price: 2499
+    price: 2499,
   },
   {
     id: "108",
@@ -69,7 +69,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 4.2,
-    price: 799
+    price: 799,
   },
   {
     id: "109",
@@ -78,7 +78,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 3.4,
-    price: 249
+    price: 249,
   },
   {
     id: "110",
@@ -87,7 +87,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 2.9,
-    price: 569
+    price: 569,
   },
   {
     id: "111",
@@ -96,7 +96,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 4.3,
-    price: 789
+    price: 789,
   },
   {
     id: "112",
@@ -105,7 +105,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 1.6,
-    price: 45999
+    price: 45999,
   },
   {
     id: "113",
@@ -114,7 +114,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 2.7,
-    price: 18899
+    price: 18899,
   },
   {
     id: "114",
@@ -123,7 +123,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 2.6,
-    price: 2389
+    price: 2389,
   },
   {
     id: "115",
@@ -132,7 +132,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 4.7,
-    price: 599
+    price: 599,
   },
   {
     id: "116",
@@ -141,7 +141,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 4.8,
-    price: 649
+    price: 649,
   },
   {
     id: "117",
@@ -150,7 +150,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 4.7,
-    price: 3499
+    price: 3499,
   },
   {
     id: "118",
@@ -159,7 +159,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 4.9,
-    price: 4599
+    price: 4599,
   },
   {
     id: "119",
@@ -168,7 +168,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 5.0,
-    price: 899
+    price: 899,
   },
   {
     id: "120",
@@ -177,7 +177,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 5.0,
-    price: 7499
+    price: 7499,
   },
   {
     id: "121",
@@ -186,7 +186,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 4.9,
-    price: 12999
+    price: 12999,
   },
   {
     id: "122",
@@ -195,7 +195,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 1.6,
-    price: 56999
+    price: 56999,
   },
   {
     id: "123",
@@ -204,130 +204,101 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 4.4,
-    price: 23999
+    price: 23999,
   },
-
-]
+];
 
 export let quantity = [
   {
     id: 101,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 102,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 103,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 104,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 105,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 106,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 107,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 108,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 109,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 110,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 111,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 112,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 113,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 114,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 115,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 116,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 117,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 118,
-    quantity: 0
+    quantity: 0,
   },
   {
     id: 119,
-    quantity: 0
+    quantity: 0,
   },
   {
     id: 120,
-    quantity: 0
+    quantity: 0,
   },
   {
     id: 121,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 122,
-    quantity: 0
-
+    quantity: 0,
   },
   {
     id: 123,
-    quantity: 0
-
+    quantity: 0,
   },
-
-]
-
-export let registeredUser = []
-
-export let userCart = []
-
-
-
+];

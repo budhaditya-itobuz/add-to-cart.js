@@ -1,12 +1,12 @@
-import { registeredUser, quantity } from "../Data/data.js";
-import { setData, getData } from "./helper.js";
+import { quantity } from "../Data/data.js";
+import { setData, getData, names } from "./helper.js";
 
 
-if (!getData('registeredUser'))
-    setData('registeredUser', registeredUser)
+if (!getData(names.registeredUser))
+    setData(names.registeredUser, [])
 
-if (!getData('userCart'))
-    setData('userCart', [])
+if (!getData(names.userCart))
+    setData(names.userCart, [])
 
 
 
@@ -23,13 +23,13 @@ const onFormSubmit = (e) => {
     userData.userId = userId
     if (otp === userDataObject.otp) {
         delete userData.otp
-        let registeredUser = getData('registeredUser')
+        let registeredUser = getData(names.registeredUser)
         registeredUser.push(userData)
-        setData('registeredUser', registeredUser)
+        setData(names.registeredUser, registeredUser)
 
-        let userCart = getData('userCart')
+        let userCart = getData(names.userCart)
         userCart.push({ id: userId, cart: quantity })
-        setData('userCart', userCart)
+        setData(names.userCart, userCart)
         alert("Registration Successfully done. Redirecting to login page")
         location.replace('login.html')
     }

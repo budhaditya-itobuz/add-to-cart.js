@@ -1,4 +1,4 @@
-import { getData, setData } from "./helper.js";
+import { getData, setData, names } from "./helper.js";
 
 
 if (!getData('registeredUser'))

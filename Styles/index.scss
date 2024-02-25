@@ -10,6 +10,8 @@ button {
     cursor: pointer;
 }
 
+
+
 nav {
     z-index: 5;
 
@@ -176,7 +178,10 @@ h2 {
     img {
         width: 100%;
     }
-
+    img[alt="star"]{
+        width: 18px;
+        margin:0 5px;
+    }
     h4:nth-of-type(1) {
         display: inline;
 
