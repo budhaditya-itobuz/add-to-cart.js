@@ -80,7 +80,7 @@ const render = () => {
         cardInfo.appendChild(ratingsContainer);
 
         const starImage = document.createElement("img");
-        starImage.src = "./images/star-solid.svg";
+        starImage.src = "./Images/star-solid.svg";
         starImage.alt = "star";
         ratingsContainer.appendChild(starImage);
 
