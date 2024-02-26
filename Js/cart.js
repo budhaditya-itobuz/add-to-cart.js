@@ -1,7 +1,6 @@
 import { getData, addItem, removeItem, enums } from "./helper.js";
 
 const logoCart = document.getElementById("cart-logo");
-
 const container = document.querySelector("#cart-container");
 
 const render = () => {
@@ -13,7 +12,7 @@ const render = () => {
     let cart = userCart.filter((item) => item.id === userId)[0].cart;
 
     logoCart.innerText = cart.filter((item) => item.quantity > 0).length;
-    productData.forEach((item, index) => {
+    productData.forEach((item) => {
         const quantity = cart.find((ele) => ele.id == item.id).quantity;
         if (quantity !== 0) {
             console.log(quantity);

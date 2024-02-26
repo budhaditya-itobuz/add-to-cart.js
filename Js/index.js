@@ -11,38 +11,31 @@ const minRange = document.getElementById("min-range");
 const maxRange = document.getElementById("max-range");
 const searchBtn = document.getElementById("search-input")
 
+const sortData = (productData, condition) => {
+    if (condition === enums.lowtoHigh)
+        return productData.sort((a, b) => a.price - b.price);
+    else if (condition === enums.hightoLow)
+        return productData.sort((a, b) => b.price - a.price);
+    else if (condition === enums.byRatings)
+        return productData.sort((a, b) => b.ratings - a.ratings);
+}
 
-if (!getData(enums.priceRange))
-    setData(enums.priceRange, { min: 0, max: 100000 });
-
-if (!getData(enums.product)) setData(enums.product, product);
+const filterData = (productData, range, searchValue) => {
+    productData = productData.filter(item => item.price > range.min && item.price < range.max);
+    return productData.filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+}
 
 const render = () => {
-
     container.innerHTML = "";
     const userId = getData(enums.user);
     if (!userId) location.replace("./HTML/login.html");
 
     let productData = getData(enums.product);
 
+    productData = filterData(productData, getData(enums.priceRange), searchBtn.value)
+    productData = sortData(productData, getData(enums.sort))
 
-    const range = getData(enums.priceRange);
-
-    productData = productData.filter(item => item.price > range.min && item.price < range.max);
-
-    const sort = getData(enums.sort);
-
-    productData = productData.filter(item => item.title.toLowerCase().includes(searchBtn.value.toLowerCase()))
-
-    if (sort === enums.lowtoHigh)
-        productData = productData.sort((a, b) => a.price - b.price);
-    else if (sort === enums.hightoLow)
-        productData = productData.sort((a, b) => b.price - a.price);
-    else if (sort === enums.byRatings)
-        productData = productData.sort((a, b) => b.ratings - a.ratings);
-
-    const userCart = getData(enums.userCart);
-    const cart = userCart.filter(item => item.id === userId)[0].cart;
+    const cart = getData(enums.userCart).filter(item => item.id === userId)[0].cart;
 
     logoCart.innerText = cart.filter(item => item.quantity > 0).length;
 
@@ -145,7 +138,15 @@ const render = () => {
         location.replace("./HTML/login.html");
     });
 };
-render();
+
+
+
+(() => {
+    if (!getData(enums.priceRange))
+        setData(enums.priceRange, { min: 0, max: 100000 });
+    if (!getData(enums.product)) setData(enums.product, product);
+    render();
+})()
 
 filterItems.forEach((item) => {
     item.addEventListener("click", () => {
@@ -180,3 +181,5 @@ sliderMax.addEventListener("change", () => {
 searchBtn.addEventListener("input", () => {
     render()
 })
+
+
