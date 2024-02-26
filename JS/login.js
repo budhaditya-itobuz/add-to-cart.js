@@ -1,4 +1,4 @@
-import { getData, setData, names } from "./helper.js";
+import { getData, setData, enums } from "./helper.js";
 
 
 if (!getData('registeredUser'))
@@ -9,14 +9,14 @@ const onFormSubmit = (e) => {
 
     const formData = new FormData(e.target);
     const userLoginObject = Object.fromEntries(formData.entries());
-    const registeredUser = getData('registeredUser')
+    const registeredUser = getData(enums.registeredUser)
     let isregistered = false
 
     for (let i = 0; i < registeredUser.length; i++) {
         if (registeredUser[i].email === userLoginObject.email) {
             isregistered = true
             if (registeredUser[i].password === userLoginObject.password) {
-                setData('user', registeredUser[i].userId)
+                setData(enums.user, registeredUser[i].userId)
                 location.replace('../index.html')
             }
             else

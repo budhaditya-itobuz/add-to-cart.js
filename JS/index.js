@@ -1,5 +1,5 @@
 import { product } from "../Data/data.js";
-import { getData, setData, removeItem, addItem, names } from "./helper.js";
+import { getData, setData, removeItem, addItem, enums } from "./helper.js";
 
 const container = document.getElementById("product-container");
 const sortItems = document.querySelectorAll(".sort");
@@ -11,43 +11,42 @@ const minRange = document.getElementById("min-range");
 const maxRange = document.getElementById("max-range");
 const searchBtn = document.getElementById("search-input")
 
-if (!getData(names.priceRange))
-    setData(names.priceRange, { min: 0, max: 100000 });
 
-if (!getData(names.product)) setData(names.product, product);
+if (!getData(enums.priceRange))
+    setData(enums.priceRange, { min: 0, max: 100000 });
+
+if (!getData(enums.product)) setData(enums.product, product);
 
 const render = () => {
 
     container.innerHTML = "";
-    const userId = getData(names.user);
+    const userId = getData(enums.user);
     if (!userId) location.replace("./HTML/login.html");
 
-    let productData = getData(names.product);
+    let productData = getData(enums.product);
 
 
-    const range = getData(names.priceRange);
+    const range = getData(enums.priceRange);
 
     productData = productData.filter(item => item.price > range.min && item.price < range.max);
 
-    console.log(productData)
-    const sort = getData(names.sort);
+    const sort = getData(enums.sort);
 
     productData = productData.filter(item => item.title.toLowerCase().includes(searchBtn.value.toLowerCase()))
 
-    if (sort === names.lowtoHigh)
+    if (sort === enums.lowtoHigh)
         productData = productData.sort((a, b) => a.price - b.price);
-    else if (sort === names.hightoLow)
+    else if (sort === enums.hightoLow)
         productData = productData.sort((a, b) => b.price - a.price);
-    else if (sort === names.byRatings)
+    else if (sort === enums.byRatings)
         productData = productData.sort((a, b) => b.ratings - a.ratings);
 
-    const userCart = getData(names.userCart);
+    const userCart = getData(enums.userCart);
     const cart = userCart.filter(item => item.id === userId)[0].cart;
 
     logoCart.innerText = cart.filter(item => item.quantity > 0).length;
 
     productData.forEach((item) => {
-
         const quantity = cart.filter(
             (element) => element.id.toString() === item.id
         )[0].quantity;
@@ -157,23 +156,23 @@ filterItems.forEach((item) => {
 
 sortItems.forEach((item) => {
     item.addEventListener("click", () => {
-        setData(names.sort, names[item.getAttribute("id")]);
+        setData(enums.sort, enums[item.getAttribute("id")]);
         render();
     });
 });
 
 sliderMin.addEventListener("change", () => {
-    let priceRange = getData(names.priceRange);
+    let priceRange = getData(enums.priceRange);
     priceRange.min = sliderMin.value;
-    setData(names.priceRange, priceRange);
+    setData(enums.priceRange, priceRange);
     minRange.innerText = sliderMin.value;
     render();
 });
 
 sliderMax.addEventListener("change", () => {
-    let priceRange = getData(names.priceRange);
+    let priceRange = getData(enums.priceRange);
     priceRange.max = sliderMax.value;
-    setData(names.priceRange, priceRange);
+    setData(enums.priceRange, priceRange);
     maxRange.innerText = sliderMax.value;
     render();
 });

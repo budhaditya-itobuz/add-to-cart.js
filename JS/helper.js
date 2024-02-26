@@ -2,7 +2,7 @@ export const getData = (str) => JSON.parse(localStorage.getItem(str))
 
 export const setData = (str, data) => localStorage.setItem(str, JSON.stringify(data))
 
-export const names = Object.freeze({
+export const  enums= Object.freeze({
     hightoLow: 1,
     lowtoHigh: 2,
     byRatings: 3,
@@ -17,8 +17,8 @@ export const names = Object.freeze({
 
 export const addItem = (productId) => {
 
-    let userId = getData(names.user)
-    let userCart = getData(names.userCart)
+    let userId = getData(enums.user)
+    let userCart = getData(enums.userCart)
 
     userCart.map((item, index) => {
         if (item.id === userId) {
@@ -29,12 +29,12 @@ export const addItem = (productId) => {
             })
         }
     })
-    setData(names.userCart, userCart)
+    setData(enums.userCart, userCart)
 }
 
 export const removeItem = (productId) => {
-    let userId = getData(names.user)
-    let userCart = getData(names.userCart)
+    let userId = getData(enums.user)
+    let userCart = getData(enums.userCart)
 
     userCart.map((item, index) => {
         if (item.id === userId) {
@@ -46,5 +46,5 @@ export const removeItem = (productId) => {
             })
         }
     })
-    setData(names.userCart, userCart)
+    setData(enums.userCart, userCart)
 };
