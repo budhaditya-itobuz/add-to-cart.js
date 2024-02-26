@@ -20,9 +20,9 @@ export const addItem = (productId) => {
     let userId = getData(enums.user)
     let userCart = getData(enums.userCart)
 
-    userCart.map((item, index) => {
+    userCart.forEach((item, index) => {
         if (item.id === userId) {
-            item.cart.map((ele, i) => {
+            item.cart.forEach((ele, i) => {
                 if (ele.id === parseInt(productId)) {
                     userCart[index].cart[i].quantity++
                 }
@@ -36,9 +36,9 @@ export const removeItem = (productId) => {
     let userId = getData(enums.user)
     let userCart = getData(enums.userCart)
 
-    userCart.map((item, index) => {
+    userCart.forEach((item, index) => {
         if (item.id === userId) {
-            item.cart.map((ele, i) => {
+            item.cart.forEach((ele, i) => {
                 if (ele.id === parseInt(productId)) {
                     if (userCart[index].cart[i].quantity > 0)
                         userCart[index].cart[i].quantity--
