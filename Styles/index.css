@@ -21,7 +21,7 @@ button {
   margin: 15px;
 }
 .menu-item:hover {
-  border-bottom: 2px solid #FE4805;
+  border-bottom: 2px solid rgb(39, 160, 39);
 }
 
 .search {
