@@ -1,15 +1,16 @@
 import { product } from "../Data/data.js";
-import { getData, setData, removeItem, addItem, enums } from "./helper.js";
+import { getData, setData, removeItem, addItem, enums } from './helper.js';
 
-const container = document.getElementById("product-container");
+const container = document.getElementById("productContainer");
 const sortItems = document.querySelectorAll(".sort");
 const filterItems = document.querySelectorAll(".filter");
-const logoCart = document.getElementById("cart-logo");
+const logoCart = document.getElementById("cartLogo");
 const sliderMin = document.getElementById("sliderMin");
 const sliderMax = document.getElementById("sliderMax");
-const minRange = document.getElementById("min-range");
-const maxRange = document.getElementById("max-range");
-const searchBtn = document.getElementById("search-input")
+const minRange = document.getElementById("minRange");
+const maxRange = document.getElementById("maxRange");
+const searchBtn = document.getElementById("searchInput")
+
 
 const sortData = (productData, condition) => {
     if (condition === enums.lowtoHigh)
@@ -28,10 +29,9 @@ const filterData = (productData, range, searchValue) => {
 const render = () => {
     container.innerHTML = "";
     const userId = getData(enums.user);
-    if (!userId) location.replace("./HTML/login.html");
+    if (!userId) location.replace("./Html/login.html");
 
     let productData = getData(enums.product);
-
     productData = filterData(productData, getData(enums.priceRange), searchBtn.value)
     productData = sortData(productData, getData(enums.sort))
 
@@ -135,7 +135,7 @@ const render = () => {
     const logout = document.querySelector("#logout");
     logout.addEventListener("click", () => {
         localStorage.removeItem("user");
-        location.replace("./HTML/login.html");
+        location.replace("./Html/login.html");
     });
 };
 

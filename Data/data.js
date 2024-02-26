@@ -24,7 +24,7 @@ export const product = [
     description:
       "Flipkart Plus. A world of limitless possibilities awaits you - Flipkart Plus was kickstar",
     ratings: 1.2,
-    price: 544899,
+    price: 54899,
   },
   {
     id: "104",

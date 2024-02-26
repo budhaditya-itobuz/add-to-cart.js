@@ -1,8 +1,8 @@
 import { getData, setData, enums } from "./helper.js";
 
 
-if (!getData('registeredUser'))
-    setData('registeredUser', [])
+if (!getData(enums.registeredUser))
+    setData(enums.registeredUser, [])
 
 const onFormSubmit = (e) => {
     e.preventDefault();

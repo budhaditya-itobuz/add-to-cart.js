@@ -138,17 +138,16 @@ h2 {
     border-radius: 2px;
 }
 
-@media (min-width:600px) {
-    nav {
-        flex-direction: row;
-    }
-}
-
 @media (min-width:350px) {
     .cart-card {
-
+        
         .card-info {
             flex-direction: row;
         }
+    }
+}
+@media (min-width:600px) {
+    nav {
+        flex-direction: row;
     }
 }

@@ -8,8 +8,6 @@ if (!getData(names.registeredUser))
 if (!getData(names.userCart))
     setData(names.userCart, [])
 
-
-
 const onFormSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -58,7 +56,6 @@ const verify = (e) => {
 
 
 let otp = ''
-let userData
 
 
 const form2 = document.getElementById("my-form");

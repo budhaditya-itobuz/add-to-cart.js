@@ -14,13 +14,12 @@
 <body>
     <nav class="nav options">
         <div class="search">
-            <!-- <h3>Search item</h3> -->
-            <input type="text" id="search-input" placeholder="search an item">
+            <input type="text" id="searchInput" placeholder="search an item">
         </div>
         <a class="menu-item" href="index.html">Product Page</a>
         <a href="" class="logout menu-item" id="logout">logout</a>
-        <a class="menu-item" href="./HTML/cart.html"> <img src="./Images/cart-shopping-solid.svg" alt="cart"> <span
-                id="cart-logo"></span></a>
+        <a class="menu-item" href="./Html/cart.html"> <img src="./Images/cart-shopping-solid.svg" alt="cart"> <span
+                id="cartLogo"></span></a>
     </nav>
     <div class="header">
         <div class="filter-options">
@@ -28,11 +27,11 @@
             <div class="sliders">
                 <div class="slidecontainer">
                     <input type="range" min="1" max="60000" value="50" class="slider" id="sliderMin">
-                    <h4> Min: <span id="min-range">0</span></h4>
+                    <h4> Min: <span id="minRange">0</span></h4>
                 </div>
                 <div class="slidecontainer">
                     <input type="range" min="1" max="60000" value="60000" class="slider" id="sliderMax">
-                    <h4>Max: <span id="max-range">60000</span></h4>
+                    <h4>Max: <span id="maxRange">60000</span></h4>
                 </div>
             </div>
         </div>
@@ -46,7 +45,7 @@
         </div>
     </div>
     <h2>See all products</h2>
-    <div class="container" id="product-container">
+    <div class="container" id="productContainer">
     </div>
 </body>
 <script type="module" src="./JS/index.js">
