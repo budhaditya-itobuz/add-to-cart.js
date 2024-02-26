@@ -2,7 +2,7 @@ export const getData = (str) => JSON.parse(localStorage.getItem(str))
 
 export const setData = (str, data) => localStorage.setItem(str, JSON.stringify(data))
 
-export const  enums= Object.freeze({
+export const enums = Object.freeze({
     hightoLow: 1,
     lowtoHigh: 2,
     byRatings: 3,

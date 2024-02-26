@@ -137,16 +137,17 @@ h2 {
     width: fit-content;
     border-radius: 2px;
 }
+
 @media (min-width:600px) {
-    nav{
+    nav {
         flex-direction: row;
     }
 }
 
 @media (min-width:350px) {
-    .cart-card{
+    .cart-card {
 
-        .card-info{
+        .card-info {
             flex-direction: row;
         }
     }
