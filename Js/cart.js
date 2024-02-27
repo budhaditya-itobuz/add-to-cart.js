@@ -13,7 +13,7 @@ const render = () => {
 
     logoCart.innerText = cart.filter((item) => item.quantity > 0).length;
     productData.forEach((item) => {
-        const quantity = cart.find((ele) => parseInt(ele.id) == item.id).quantity;
+        const quantity = cart.find((ele) => parseInt(ele.id) === item.id).quantity;
         if (quantity !== 0) {
             const cartCard = document.createElement("div");
             cartCard.classList.add("cart-card");
